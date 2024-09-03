@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Brand Name</title>
+    <!-- Include Poppins Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Include Pico.css -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .grid {
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section>
+            <h1>Your Brand Name</h1>
+            <p>Your tagline or a brief description of what your site is about.</p>
+        </section>
+        <section class="grid">
+            <button data-target="modal-1" class="contrast">Button 1</button>
+            <button data-target="modal-2" class="contrast">Button 2</button>
+            <button data-target="modal-3" class="contrast">Button 3</button>
+            <button data-target="modal-4" class="contrast">Button 4</button>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <dialog id="modal-1">
+        <article>
+            <header>
+                <a href="#" class="close" aria-label="Close"></a>
+                <h3>Modal Title 1</h3>
+            </header>
+            <p>More information for Button 1 goes here.</p>
+            <footer>
+                <a href="#" class="contrast button">Close</a>
+            </footer>
+        </article>
+    </dialog>
+
+    <dialog id="modal-2">
+        <article>
+            <header>
+                <a href="#" class="close" aria-label="Close"></a>
+                <h3>Modal Title 2</h3>
+            </header>
+            <p>More information for Button 2 goes here.</p>
+            <footer>
+                <a href="#" class="contrast button">Close</a>
+            </footer>
+        </article>
+    </dialog>
+
+    <dialog id="modal-3">
+        <article>
+            <header>
+                <a href="#" class="close" aria-label="Close"></a>
+                <h3>Modal Title 3</h3>
+            </header>
+            <p>More information for Button 3 goes here.</p>
+            <footer>
+                <a href="#" class="contrast button">Close</a>
+            </footer>
+        </article>
+    </dialog>
+
+    <dialog id="modal-4">
+        <article>
+            <header>
+                <a href="#" class="close" aria-label="Close"></a>
+                <h3>Modal Title 4</h3>
+            </header>
+            <p>More information for Button 4 goes here.</p>
+            <footer>
+                <a href="#" class="contrast button">Close</a>
+            </footer>
+        </article>
+    </dialog>
+
+    <script>
+        document.querySelectorAll('button[data-target]').forEach(button => {
+            button.addEventListener('click', () => {
+                const modalId = button.getAttribute('data-target');
+                document.getElementById(modalId).showModal();
+            });
+        });
+
+        document.querySelectorAll('.close').forEach(closeButton => {
+            closeButton.addEventListener('click', (e) => {
+                e.target.closest('dialog').close();
+            });
+        });
+    </script>
+</body>
+</html>
